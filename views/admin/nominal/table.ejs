@@ -1,3 +1,4 @@
+
 <table id="example2" class="table table-hover">
     <thead>
     <tr>
@@ -16,7 +17,7 @@
                 <td width="15%"><%= nominal[i].id %></td>
                 <td width="25%"><%= nominal[i].coinName %></td>
                 <td width="15%"><%= nominal[i].coinQuantity %></td>
-                <td width="25%"><%= nominal[i].price %></td>
+                <td width="25%">Rp. <%= Intl.NumberFormat('en-US').format(nominal[i].price) %></td>
                 <td width="15%">
                     <form action="/nominal/delete/<%= nominal[i]._id %>?_method=DELETE" method="POST">
                         <a href="/nominal/edit/<%= nominal[i]._id %>" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i> Ubah </a>
@@ -26,4 +27,4 @@
             </tr>
         <% } %>
     </tbody>
-  </table>
+</table>
