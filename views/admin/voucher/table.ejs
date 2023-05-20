@@ -36,14 +36,14 @@
                         </span>
                     <% } %>
                 </td>
-                <td width="15%" class="text-right align-middle">
-                    <form action="" style="display: inline-block;">
+                <td width="15%" class="text-right align-middle" >
+                    <form action="/voucher/status/<%= voucher[i]._id %>?_method=PUT" method="POST" style="display: inline-block;">
                         <% if(voucher[i].status == 'Y') { %> 
                             <button type="submit" class="btn btn-primary btn-sm">
                                 <i class="fa fa-play-circle"></i> 
                             </button>
                         <% } else { %>
-                            <button type="submit" class="btn btn-secondary btn-sm">
+                            <button type="submit" class="btn btn-success btn-sm">
                                 <i class="fas fa-stop-circle"></i> 
                             </button>
                         <% } %>
