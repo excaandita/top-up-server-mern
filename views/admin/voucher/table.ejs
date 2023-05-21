@@ -39,19 +39,19 @@
                 <td width="15%" class="text-right align-middle" >
                     <form action="/voucher/status/<%= voucher[i]._id %>?_method=PUT" method="POST" style="display: inline-block;">
                         <% if(voucher[i].status == 'Y') { %> 
-                            <button type="submit" class="btn btn-primary btn-sm">
-                                <i class="fa fa-play-circle"></i> 
+                            <button type="submit" class="btn btn-primary btn-xs" title="Non-Aktifkan Voucher">
+                                <i class="fa fa-stop-circle"></i> 
                             </button>
                         <% } else { %>
-                            <button type="submit" class="btn btn-success btn-sm">
-                                <i class="fas fa-stop-circle"></i> 
+                            <button type="submit" class="btn btn-success btn-xs" title="Aktifkan Voucher">
+                                <i class="fas fa-play-circle"></i> 
                             </button>
                         <% } %>
                         
                     </form>
                     <form style="display: inline-block;" action="/voucher/delete/<%= voucher[i]._id %>?_method=DELETE" method="POST">
-                        <a href="/voucher/edit/<%= voucher[i]._id %>" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i> Ubah </a>
-                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</button>
+                        <a href="/voucher/edit/<%= voucher[i]._id %>" class="btn btn-info btn-xs"><i class="fas fa-pencil-alt"></i> Ubah </a>
+                        <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Hapus</button>
                     </form>
                 </td>
             </tr>
