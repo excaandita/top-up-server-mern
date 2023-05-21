@@ -1,0 +1,78 @@
+<%- include ../../partials/header.ejs %>
+<%- include ../../partials/navbar.ejs %>
+<%- include ../../partials/sidebar.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Jenis Pembayaran (Payment)</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/payment">Payment</a></li>
+              <li class="breadcrumb-item active">Tambah</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Form Tambah Jenis Pembayaran (Payment) </h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form action="/payment/create" method="POST" >
+                  <div class="card-body">
+                    <div class="form-group">
+                        <label for="type">Tipe Pembayaran</label>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="Masukan Tipe Pembayaran" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Bank</label>
+                        <div class="select2-purple">
+                            <select class="form-control select2" multiple="multiple" style="width: 100%;" data-placeholder="Pilih Bank" name="banks" id="banks" required >
+                              <% bank.forEach(bank => { %>
+                                <option value=<%- bank._id %>><%- bank.nameBank %> - <%- bank.name %> - <%- bank.noRekening %></option>
+                              <% })%>
+                            </select>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                  </div>
+                </form>
+              </div>
+              <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+<%- include ../../partials/footer.ejs %>
+<%- include ../../partials/js.ejs %>
+<script>
+    $('#banks').select2({
+        placeholder: "Pilih Bank"
+    });
+</script>

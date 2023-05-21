@@ -1,0 +1,57 @@
+
+<table id="example2" class="table table-hover">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>ID</th>
+      <th>Tipe Pembayaran</th>
+      <th>Bank</th>
+      <th class="text-center align-middle">Status</th>
+      <th class="text-right align-middle">Aksi</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% for(let i = 0; i < payment.length; i++) { %>
+            <tr>
+                <td width="5%"><%= i + 1 %></td>
+                <td width="10%"><%= payment[i].id %></td>
+                <td width="15%"><%= payment[i].type %></td>
+                <td width="20%">
+                    <% payment[i].banks.forEach(bank => { %> 
+                        <span class="badge badge-warning">
+                            <b><%= bank.nameBank %> </b> - <%= bank.name %> -  <%= bank.noRekening %>
+                        </span>
+                    <% }) %>
+                </td>
+                <td width="8%" class="text-center align-middle">
+                    <% if(payment[i].status == 'Y') { %> 
+                        <span class="badge badge-success">
+                            Aktif
+                        </span>
+                    <% } else { %>
+                        <span class="badge badge-danger">
+                            Tidak Aktif
+                        </span>
+                    <% } %>
+                </td>
+                <td width="8%" class="text-right align-middle" >
+                    <form action="/payment/status/<%= payment[i]._id %>?_method=PUT" method="POST" style="display: inline-block;">
+                        <% if(payment[i].status == 'Y') { %> 
+                            <button type="submit" class="btn btn-primary btn-xs" title="Non-Aktifkan Pembayaran">
+                                <i class="fa fa-stop-circle"></i> 
+                            </button>
+                        <% } else { %>
+                            <button type="submit" class="btn btn-success btn-xs" title="Aktifkan Pembayaran">
+                                <i class="fas fa-play-circle"></i> 
+                            </button>
+                        <% } %>
+                    </form>
+                    <form style="display: inline-block;" action="/payment/delete/<%= payment[i]._id %>?_method=DELETE" method="POST">
+                        <a href="/payment/edit/<%= payment[i]._id %>" class="btn btn-info btn-xs"><i class="fas fa-pencil-alt"></i> Ubah </a>
+                        <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Hapus</button>
+                    </form>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
