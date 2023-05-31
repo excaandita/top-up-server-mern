@@ -12,6 +12,6 @@ let bankSchema = mongoose.Schema({
         type: String,
         required: [true, 'No Rekening Bank Harus diisi!!']
     }
-})
+}, {timestamps: true})
 
 module.exports = mongoose.model('Bank', bankSchema)

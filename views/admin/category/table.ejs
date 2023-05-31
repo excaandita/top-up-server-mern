@@ -4,7 +4,7 @@
       <th>No</th>
       <th>ID</th>
       <th>Nama</th>
-      <th>Aksi</th>
+      <th class="text-right align-middle">Aksi</th>
     </tr>
     </thead>
     <tbody>
@@ -13,10 +13,10 @@
                 <td width="5%"><%= i + 1 %></td>
                 <td width="15%"><%= category[i].id %></td>
                 <td width="65%"><%= category[i].name %></td>
-                <td width="15%">
+                <td width="10%" class="text-right align-middle">
                     <form action="/category/delete/<%= category[i]._id %>?_method=DELETE" method="POST">
-                        <a href="/category/edit/<%= category[i]._id %>" class="btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i> Ubah </a>
-                        <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</button>
+                        <a href="/category/edit/<%= category[i]._id %>" class="btn btn-info btn-xs"><i class="fas fa-pencil-alt"></i> Ubah </a>
+                        <button class="btn btn-danger btn-xs"><i class="fas fa-trash"></i> Hapus</button>
                     </form>
                 </td>
             </tr>
